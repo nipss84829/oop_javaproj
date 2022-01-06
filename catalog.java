@@ -20,8 +20,7 @@ public class catalog {
     }
     private static void readfile(){
         try {
-            File cate = new File("catalog.txt");
-            Scanner scn = new Scanner(cate);
+            Scanner scn = new Scanner(new File("catalog.txt"));
             while(scn.hasNextLine()){
                 cata.add(scn.nextLine());
             }

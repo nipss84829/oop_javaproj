@@ -18,8 +18,7 @@ public class DataArray{
 
     public static void readfile(){
         try {
-            File book = new File("data.txt");
-            Scanner read = new Scanner(book);
+            Scanner read = new Scanner(new File("data.txt"));
             while(read.hasNextLine()){
                 String d[] = new String[6];
                 String rf = read.nextLine();

@@ -41,8 +41,7 @@ public class auth{
     }
     private static void readuser(){
         try {
-            File readfile = new File("account.txt");
-            rfile = new Scanner(readfile);
+            rfile = new Scanner(new File("account.txt"));
             String st[] = rfile.nextLine().split(" ");
             f_acc = st[0];
             f_pw = st[1];
@@ -52,8 +51,7 @@ public class auth{
     }
     private static void readverifyString(){
         try {
-            File readconfig = new File("myconfig.txt");
-            rfile = new Scanner(readconfig);
+            rfile = new Scanner(new File("myconfig.txt"));
             String st[]  = rfile.nextLine().split(":");
             f_vs = st[1];
         } catch (Exception e) {
