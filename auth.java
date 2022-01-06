@@ -17,7 +17,7 @@ public class auth{
             acc = Main.scn.nextLine();
             System.out.println("Password:");
             pw = Main.scn.nextLine();
-            System.out.println("Verify_string:12345");
+            System.out.println("Verify_string:"+f_vs);
             System.out.println("Input_Verify_string:");
             vs = Main.scn.nextLine();
             if(auth.login(acc, pw, vs)){

@@ -1,4 +1,3 @@
-[ID] [Name]       [Phone]     [Catalog]    [Email]                  [BD]
 0001 Andy         0934-675983 Family       alice0212@gmail.com      0212
 0002 Cherry       0943-333165 Classmate    Cherry1029@gmail.com     1029
 0003 Ivy          0936-408012 Family       Ivy0716@yahoo.com.tw     0716

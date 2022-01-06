@@ -1,14 +1,5 @@
 cis
 1234
 12345
-8
-Family
-FamilyAndRelatives
-Uber
-0
-8
-Relatives
-0
-9
+1
 99
-

@@ -11,7 +11,6 @@ public class DataArray{
     private static ArrayList<Data> databook = new ArrayList<>();
 
     public static void show_all(){
-        //System.out.println("showALL");
         for(Data x:databook){
             x.getlineData();
         }
