@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Data{
-    private String ID;
+    private int ID;
     private String Name;
     private String Birthday;
     private String phoneNumber;
@@ -16,7 +16,7 @@ public class Data{
         category = "NOCATEGORY";
         email = "NOEMAIL";
     }
-    public Data(String ID ,String Name,String phoneNumber,String category,String email,String Birthday){
+    public Data(int ID ,String Name,String phoneNumber,String category,String email,String Birthday){
         this.ID=ID;
         this.Name=Name;
         this.Birthday=Birthday;
@@ -25,7 +25,7 @@ public class Data{
         this.email=email;
     }
     public void getlineData(){
-        System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n",ID,Name,phoneNumber,category,email,Birthday);
+        System.out.printf("%04d %-12s %-11s %-12s %-24s %-4s\n",ID,Name,phoneNumber,category,email,Birthday);
         //System.out.println(getName()+"\t"+getBirthday()+"\t"+getPhoneNumber()+"\t"+getcategory()+"\t"+getemail());
     }
     public String getallData(){

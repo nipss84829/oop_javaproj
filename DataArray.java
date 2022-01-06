@@ -23,13 +23,13 @@ public class DataArray{
                 String d[] = new String[6];
                 String rf = read.nextLine();
                 StringTokenizer st = new StringTokenizer(rf);
-                d[0] = st.nextToken();
+                int id = Integer.parseInt(st.nextToken());
                 d[1] = st.nextToken();
                 d[2] = st.nextToken();
                 d[3] = st.nextToken();
                 d[4] = st.nextToken();
                 d[5] = st.nextToken();
-                databook.add(new Data(d[0],d[1],d[2],d[3],d[4],d[5]));
+                databook.add(new Data(id,d[1],d[2],d[3],d[4],d[5]));
             }
         } catch (Exception e) {
             e.printStackTrace();
