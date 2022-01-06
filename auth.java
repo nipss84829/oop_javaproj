@@ -14,15 +14,14 @@ public class auth{
         int i=0;
         while(true){
             System.out.println("Account:");
-            acc = Main.scn.next();
+            acc = Main.scn.nextLine();
             System.out.println("Password:");
-            pw = Main.scn.next();
+            pw = Main.scn.nextLine();
             System.out.println("Verify_string:12345");
             System.out.println("Input_Verify_string:");
-            vs = Main.scn.next();
+            vs = Main.scn.nextLine();
             if(auth.login(acc, pw, vs)){
                 System.out.println("Login_success");
-                menu.mainmenu();
                 break;
             }
             else{
@@ -33,7 +32,6 @@ public class auth{
                 System.exit(0);
             }
         }
-       
     }
     public static boolean login(String acc,String pw,String vs){
         if(acc.equals(f_acc)&&pw.equals(f_pw)&&vs.equals(f_vs)){

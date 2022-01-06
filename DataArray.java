@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class DataArray{
     
-    static{
+    public static void load(){
         readfile();
     }
     private static ArrayList<Data> databook = new ArrayList<>();
@@ -22,18 +22,17 @@ public class DataArray{
             File book = new File("data.txt");
             Scanner read = new Scanner(book);
             while(read.hasNextLine()){
-                String data[] = new String[6];
+                String d[] = new String[6];
                 String rf = read.nextLine();
                 StringTokenizer st = new StringTokenizer(rf);
-                data[0] = st.nextToken();
-                data[1] = st.nextToken();
-                data[2] = st.nextToken();
-                data[3] = st.nextToken();
-                data[4] = st.nextToken();
-                data[5] = st.nextToken();
-                databook.add(new Data(data[0],data[1],data[2],data[3],data[4],data[5]));
+                d[0] = st.nextToken();
+                d[1] = st.nextToken();
+                d[2] = st.nextToken();
+                d[3] = st.nextToken();
+                d[4] = st.nextToken();
+                d[5] = st.nextToken();
+                databook.add(new Data(d[0],d[1],d[2],d[3],d[4],d[5]));
             }
-            //System.out.println("READFILE");
         } catch (Exception e) {
             e.printStackTrace();
         }

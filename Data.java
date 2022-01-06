@@ -72,11 +72,11 @@ public class Data{
         }
     }
     //category.java
-    public void setcategory(){
-        //while(Cate.selectcategory().equals("")){
-            category = Cate.selectcategory();
-        //}
-    }
+    // public void setcategory(){
+    //     //while(Cate.selectcategory().equals("")){
+    //         category = Cate.selectcategory();
+    //     //}
+    // }
 
     public boolean setemail(String email){
         if(email!=null&&checkEmail(email)){

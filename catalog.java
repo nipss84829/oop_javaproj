@@ -3,79 +3,89 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
-class catalog {
-    private ArrayList<String> catalog = new ArrayList<>(); 
-    public catalog(){
+public class catalog {
+    private static SortedSet <String> cata = new TreeSet<>();
+
+    //private ArrayList<String> catalog = new ArrayList<>(); 
+    public static void load(){
         readfile();
     }
-    public void show(){
-        System.out.println("current category:");
-        int i = 0;
-        for(String x: catalog){
-            System.out.println(i+":"+x);
-            i++;
+    public static void show(){
+        System.out.println("[Catalog]");
+        for(String x: cata){
+            System.out.println(x);
         }
     }
-    public void readfile(){
+    private static void readfile(){
         try {
             File cate = new File("catalog.txt");
-            if(cate.exists()){
-                Scanner scn = new Scanner(cate);
-                while(scn.hasNextLine()){
-                    catalog.add(scn.nextLine());  
-                }
-                scn.close();
-            }
-            else{
-                cate.createNewFile();
-                System.out.println("Created file \"catalog.txt\"");
-                add();
+            Scanner scn = new Scanner(cate);
+            while(scn.hasNextLine()){
+                cata.add(scn.nextLine());
             }
         } catch (IOException e) {
-            System.out.println("An error occurred");
+            e.printStackTrace();
         }
     }
-    public void writefile(){
+    private static void writefile(){
         try {
             FileWriter FW = new FileWriter("catalog.txt");
-            for(String x:catalog){
+            for(String x:cata){
                 FW.write(x+System.lineSeparator());
             }
             FW.close();
         } catch (Exception e) {
-            System.out.println("error to write back file!");
+            e.printStackTrace();
+            // System.out.println("error to write back file!");
         }
     }
-    public void add(){
-        System.out.println("please insert a word to add category,type \"exit\" to back:");
-        Scanner scn = new Scanner(System.in);
-        String newcate = scn.nextLine();
-        
-        if(newcate!=null){
-            catalog.add(newcate);
-            System.out.println("add category SUCCESS!");
-            show();
-            writefile();
-        }
-        else System.out.println("entered null, please retype it");
-    }
-    public String selectcategory(){
-        System.out.println("please enter number of category");
-        show();
-        int index=0;
-        Scanner scn = new Scanner(System.in);
-        String selcate="";
-        while(true){
-            try{
-                index = Integer.parseInt(scn.nextLine());
-                selcate = catalog.get(index);
-                break;
-            }catch(Exception e){
-                System.out.println("error! index not found or not index ! please retype it");
-                System.out.println();
+    public static void doaddcat(){
+        System.out.println("Please_input_new_catalog:");
+        String newcat = Main.scn.nextLine();
+        if(!(newcat.length()>12)){
+            String fnewcat = newcat.substring(0,1);
+            String rnewcat = newcat.substring(1,newcat.length());
+            newcat = fnewcat+rnewcat;
+    
+            if(addcat(newcat)){
+                System.out.println("Add_catalog_Gamers_success");
+            }
+            else{
+                System.out.println("Error_catalog_existed");
             }
         }
-        return selcate;
+        else{
+            System.out.println("Error_catalog_to_long");
+        }
+        
     }
+    private static boolean addcat(String adc){
+        try {
+            cata.add(adc);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // public String selectcategory(){
+    //     System.out.println("please enter number of category");
+    //     show();
+    //     int index=0;
+    //     String selcate="";
+    //     while(true){
+    //         try{
+    //             index = Integer.parseInt(Main.scn.nextLine());
+    //             selcate = catalog.get(index);
+    //             break;
+    //         }catch(Exception e){
+    //             System.out.println("error! index not found or not index ! please retype it");
+    //             System.out.println();
+    //         }
+    //     }
+    //     return selcate;
+    // }
 }

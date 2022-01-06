@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class control{
     public static void domainmenu(){
         String mainselect;
@@ -24,8 +25,14 @@ public class control{
                 case "7":
                 //Add_contact
                 case "8":
+                    catalog.doaddcat();
+                    simpleback();
+                    break;
                 //Add_catalog
                 case "9":
+                    catalog.show();
+                    simpleback();
+                    break;
                 //show_all_catalog
                 case "10":
                 //Set_display_field
@@ -55,7 +62,22 @@ public class control{
         while(true){
             menu.show_all();
             select = Main.scn.nextLine();
-            System.out.println(select);
+            switch(select){
+                case "0":
+                    return;
+                case "99":
+                    System.exit(0);
+                default:
+                    menu.wrong();
+                    break;
+            }
+        }
+    }
+    public static void simpleback(){
+        String select;
+        while(true){
+            menu.simplegoback();
+            select = Main.scn.nextLine();
             switch(select){
                 case "0":
                     return;

@@ -18,8 +18,14 @@ public class menu{
         "[0].Go_back_to_main_menu [99]. Exit_system"+
         "****************************************\n");
     }
+    public static void catalog(){
+
+    }
     public static void wrong(){
         System.out.println("Error_wrong_command\n"+
         "Please_enter_again:");
+    }
+    public static void simplegoback(){
+        System.out.println("[0].Go_back_to_main_menu [99]. Exit_system");
     }
 }
