@@ -26,6 +26,6 @@ public class menu{
         "Please_enter_again:");
     }
     public static void simplegoback(){
-        System.out.println("[0].Go_back_to_main_menu [99]. Exit_system");
+        System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
     }
 }
