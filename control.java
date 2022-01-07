@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+
 public class control{
     public static void domainmenu(){
         String mainselect;
@@ -14,7 +17,7 @@ public class control{
                 case "3":
                 //Show_by_catalog
                 case "4":
-                    menu.search();
+                    search();
                     break;
                     //Search
                 case "5":
@@ -72,6 +75,144 @@ public class control{
                     break;
             }
         }
+    }
+    public static void search(){
+        ArrayList<Data> x = null;
+        menu.search();
+        String select;
+        String value;
+        String sub;
+        Data data = new Data();
+        while(true){
+            select = Main.scn.nextLine();
+            switch(select){
+                case "a":
+                    //ID
+                    System.out.println("Input_target:");
+                    while(true){
+                        value = Main.scn.nextLine();
+                        if(data.checkID(value)){
+                            int convert = Integer.parseInt(value);
+                            value = Integer.toString(convert);
+                            x = DataArray.searchitem("ID", value);
+                            if(x.isEmpty()){
+                                System.out.println("Error_no_result");
+                                break;
+                            }else{
+                                System.out.println("Search_result:");
+                                bar();
+                                for(Data outbook:x){
+                                    outbook.getlineData();
+                                }break;
+
+                            }
+                        }
+                        else{
+                            System.out.println("Error_wrong_data");
+                            System.out.println("Please_input_again:");
+                        }
+                    }
+                    System.out.println("[1].Restart_search [0].Go_back_to_main_menu [99].Exit_system");
+                    sub = Main.scn.nextLine();
+                    if(sub.equals("1")){
+                        search();
+                        break;
+                    }
+                    else if(sub.equals("0")){
+                        domainmenu();
+                        break;
+                    }
+                    else if(sub.equals("99")){
+                        System.exit(0);
+                    }
+                case "b":
+                    //name
+                    System.out.println("Input_target:");
+                    while(true){
+                        value = Main.scn.nextLine();
+                        if(data.checkName(value)){
+                            x = DataArray.searchitem("name", value);
+                            if(x.isEmpty()){
+                                System.out.println("Error_no_result");
+                                break;
+                            }else{
+                                System.out.println("Search_result:");
+                                bar();
+                                for(Data outbook:x){
+                                    outbook.getlineData();
+                                }
+                                break;
+                            }
+                        }
+                        else{
+                            System.out.println("Error_wrong_data");
+                            System.out.println("Please_input_again:");
+                        }
+                    }
+                    System.out.println("[1].Restart_search [0].Go_back_to_main_menu [99].Exit_system");
+                    sub = Main.scn.nextLine();
+                    if(sub.equals("1")){
+                        search();
+                        break;
+                    }
+                    else if(sub.equals("0")){
+                        domainmenu();
+                        break;
+                    }
+                    else if(sub.equals("99")){
+                        System.exit(0);
+                    }
+                case "c":
+                    //birthday
+                    System.out.println("Input_target:");
+                    while(true){
+                        value = Main.scn.nextLine();
+                        if(data.checkDate(value)){
+                            x = DataArray.searchitem("birthday", value);
+                            if(x.isEmpty()){
+                                System.out.println("Error_no_result");
+                                break;
+                            }else{
+                                System.out.println("Search_result:");
+                                bar();
+                                for(Data outbook:x){
+                                    outbook.getlineData();
+                                }
+                                break;
+                            }
+                        }
+                        else{
+                            System.out.println("Error_wrong_data");
+                            System.out.println("Please_input_again:");
+                        }
+                    }
+                    System.out.println("[1].Restart_search [0].Go_back_to_main_menu [99].Exit_system");
+                    sub = Main.scn.nextLine();
+                    if(sub.equals("1")){
+                        search();
+                        break;
+                    }
+                    else if(sub.equals("0")){
+                        domainmenu();
+                        break;
+                    }
+                    else if(sub.equals("99")){
+                        System.exit(0);
+                    }
+                case "0":
+                    domainmenu();
+                    break;
+                case "99":
+                    System.exit(0);
+                default:
+                    menu.wrong();
+                    break;
+            }
+        }
+    }
+    public static void bar(){
+        System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n",
+        "[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
     }
     public static void simpleback(){
         String select;

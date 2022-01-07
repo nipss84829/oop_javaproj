@@ -12,12 +12,13 @@ public class menu{
         System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
     }
     public static void search(){
-        System.out.println("****************************************\n" +
-        "Search by:\n"+
-        "[a].ID [b].Name [c].Birthday \n"+
-        "[0].Go_back_to_main_menu [99].Exit_system"+
-        "****************************************\n");
+        //System.out.print("****************************************\n");
+        System.out.print("Search by:\n");
+        System.out.print("[a].ID [b].Name [c].Birthday \n");
+        System.out.print("[0].Go_back_to_main_menu [99].Exit_system\n");
+        //System.out.print("****************************************\n");
     }
+    
     public static void catalog(){
 
     }
@@ -28,4 +29,5 @@ public class menu{
     public static void simplegoback(){
         System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
     }
+    
 }

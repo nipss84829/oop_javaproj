@@ -34,6 +34,7 @@ public class Data{
     public void setID(){
         
     }
+
     public boolean setName(String Name){
         if(Name!=null){
             this.Name = Name;
@@ -90,7 +91,9 @@ public class Data{
             return false;
         }
     }
-    //String Name,String Birthday,String phoneNumber,String category,String email
+    public String getID(){
+        return Integer.toString(this.ID);
+    }
     public String getName(){
         return this.Name;
     }
@@ -117,7 +120,28 @@ public class Data{
         }
         return false;
     }
-    private boolean checkDate(String Birthday){
+    public boolean checkID(String ID){
+        int convert;
+        try {
+            convert = Integer.parseInt(ID);
+        } catch (Exception e) {
+            return false;
+        }
+        String theid = Integer.toString(convert);
+        if(theid.length()<5){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public boolean checkName(String name){
+        if(name.trim().equals("")||name.matches("^[0-9]*$")){
+            return false;
+        }
+        else return true;
+    }
+    public boolean checkDate(String Birthday){
         if(Birthday.trim().equals("")){
             return false;
         }
@@ -139,13 +163,13 @@ public class Data{
             return true;
         }
     }
-    private boolean checkPhone(String phoneNumber){
+    public boolean checkPhone(String phoneNumber){
         if(phoneNumber.matches("[0-9]{4}-[0-9]{6}")){
             return true;
         }
         return false;
     }
-    private boolean checkEmail(String email){
+    public boolean checkEmail(String email){
         if(email.matches("^[_a-z0-9-]+([.][_a-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$")){
             return true;
         }

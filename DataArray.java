@@ -15,7 +15,35 @@ public class DataArray{
             x.getlineData();
         }
     }
+    public static void search(){
 
+    }
+    public static ArrayList<Data> searchitem(String datatype,String value){
+        ArrayList<Data> searchedData = new ArrayList<>();
+        switch(datatype){
+            case "id":case "ID":
+                for(Data book:databook){
+                    if(book.getID().equals(value)){
+                        searchedData.add(book);
+                    }
+                }
+                break;
+            case "name":case "Name":
+                for(Data book:databook){
+                    if(book.getName().equals(value)){
+                        searchedData.add(book);
+                    }
+                }
+                break;
+            case "birthday":case "Birthday":
+                for(Data book:databook){
+                    if(book.getBirthday().equals(value)){
+                        searchedData.add(book);
+                    }
+                }
+        }
+        return searchedData;
+    }
     public static void readfile(){
         try {
             Scanner read = new Scanner(new File("data.txt"));
