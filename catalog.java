@@ -9,8 +9,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class catalog {
-    //private static SortedSet <String> cata = new TreeSet<>();
-    private static ArrayList <String> cata = new ArrayList<>();
+    private static SortedSet <String> cata = new TreeSet<>();
+    //private static ArrayList <String> cata = new ArrayList<>();
     public static void load(){
         readfile();
     }
@@ -66,10 +66,13 @@ public class catalog {
             if(check.equals(adc))return false;
         }
         cata.add(adc);
-        Collections.sort(cata);
+        //Collections.sort(cata);
         return true;
     }
+    public void selectcatalog(){
+        System.out.print("Catalogs:");
 
+    }
     // public String selectcategory(){
     //     System.out.println("please enter number of category");
     //     show();
