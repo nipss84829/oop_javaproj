@@ -15,8 +15,24 @@ public class DataArray{
             x.getlineData();
         }
     }
-    public static void search(){
-
+    public static void additem(){
+        Data newdata = new Data();
+        Config config = new Config();
+        int id = config.getInt("used_last_id");
+        newdata.setID(id+1);
+        config.wID("used_last_id", id+1);
+        System.out.println("Name:");
+        newdata.setName(Main.scn.nextLine());
+        System.out.println("Phone_number:");
+        newdata.setphoneNumber(Main.scn.nextLine());
+        //catalogs
+        newdata.setcategory();
+        System.out.println("Email:");
+        newdata.setemail(Main.scn.nextLine());
+        System.out.println("Birthday:");
+        newdata.setBirthday(Main.scn.nextLine());
+        databook.add(newdata);
+        System.out.println("Add_contact_success");
     }
     public static ArrayList<Data> searchitem(String datatype,String value){
         ArrayList<Data> searchedData = new ArrayList<>();

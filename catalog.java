@@ -9,8 +9,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class catalog {
-    private static SortedSet <String> cata = new TreeSet<>();
-    //private static ArrayList <String> cata = new ArrayList<>();
+    //private static SortedSet <String> cata = new TreeSet<>();
+    private static ArrayList <String> cata = new ArrayList<>();
     public static void load(){
         readfile();
     }
@@ -66,12 +66,28 @@ public class catalog {
             if(check.equals(adc))return false;
         }
         cata.add(adc);
-        //Collections.sort(cata);
+        Collections.sort(cata);
         return true;
     }
-    public void selectcatalog(){
+    public String selectcatalog(){
         System.out.print("Catalogs:");
-
+        int index;
+        String selcate="";
+        int i=1;
+        for(String x: cata){
+            System.out.print("["+i+"].");
+            System.out.print(x+" ");
+            i++;
+        }
+        System.out.println();
+        System.out.println("Catalog:");
+        try {
+            index = Integer.parseInt(Main.scn.nextLine());
+            selcate = cata.get(index-1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return selcate;
     }
     // public String selectcategory(){
     //     System.out.println("please enter number of category");

@@ -24,6 +24,8 @@ public class control{
                 case "6":
                 //Delete
                 case "7":
+                    Add_contact();
+                    break;
                 //Add_contact
                 case "8":
                     catalog.doaddcat();
@@ -209,6 +211,11 @@ public class control{
             }
         }
     }
+    public static void Add_contact(){
+        DataArray.additem();
+        simpleback();
+    }
+    
     public static void bar(){
         System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n",
         "[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");

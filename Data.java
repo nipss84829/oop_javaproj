@@ -31,14 +31,14 @@ public class Data{
     public String getallData(){
         return(getName()+"\t"+getBirthday()+"\t"+getPhoneNumber()+"\t"+getcategory()+"\t"+getemail()+"\n");
     } 
-    public void setID(){
-        
+    public void setID(int ID){
+        this.ID = ID;
     }
 
     public boolean setName(String Name){
         if(Name!=null){
             this.Name = Name;
-            System.out.println("OK");
+            //System.out.println("OK");
             return true;
         }
         else {
@@ -50,12 +50,12 @@ public class Data{
     public boolean setBirthday(String Birthday){
         if(Birthday!=null&&checkDate(Birthday)){
             this.Birthday = Birthday;
-            System.out.println("OK");
+            // System.out.println("OK");
             return true;
         }
         else {
-            System.out.println("Birthday cannnot be blank or format error");
-            System.out.println("please retype it!");
+            // System.out.println("Birthday cannnot be blank or format error");
+            // System.out.println("please retype it!");
             return false;
         }
         
@@ -63,26 +63,26 @@ public class Data{
     public boolean setphoneNumber(String phoneNumber){
         if(phoneNumber!=null&&checkPhone(phoneNumber)){
             this.phoneNumber = phoneNumber;
-            System.out.println("OK");
+            // System.out.println("OK");
             return true;
         }
         else {
-            System.out.println("phoneNumber cannnot be blank or format error");
-            System.out.println("please retype it!");
+            // System.out.println("phoneNumber cannnot be blank or format error");
+            // System.out.println("please retype it!");
             return false;
         }
     }
     //category.java
-    // public void setcategory(){
-    //     //while(Cate.selectcategory().equals("")){
-    //         category = Cate.selectcategory();
-    //     //}
-    // }
+    public void setcategory(){
+        //while(Cate.selectcategory().equals("")){
+            category = Cate.selectcatalog();
+        //}
+    }
 
     public boolean setemail(String email){
         if(email!=null&&checkEmail(email)){
             this.email = email;
-            System.out.println("OK");
+            //System.out.println("OK");
             return true;
         }
         else {
@@ -170,7 +170,8 @@ public class Data{
         return false;
     }
     public boolean checkEmail(String email){
-        if(email.matches("^[_a-z0-9-]+([.][_a-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$")){
+        // if(email.matches("^[_a-z0-9-]+([.][_a-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$")){
+        if(email.matches(".+@.+\\..+")){
             return true;
         }
         return false;
