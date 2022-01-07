@@ -42,6 +42,27 @@ public class DataArray{
         databook.add(newdata);
         System.out.println("Add_contact_success");
     }
+    public static boolean delete(String value){
+        int flag=0;
+        Data deleteitem = new Data();
+        for(Data book:databook){
+            if(book.getID().equals(value)){
+                flag = 1;
+                deleteitem = book;
+            }
+        }
+        if(flag==0){
+            //System.out.println("Error_no_such_data");
+            return false;
+        }
+        else{
+            databook.remove(deleteitem);
+            //System.out.println("Delete_data_success");
+            return true;
+        }
+        
+    }
+
     public static ArrayList<Data> searchitem(String datatype,String value){
         ArrayList<Data> searchedData = new ArrayList<>();
         switch(datatype){

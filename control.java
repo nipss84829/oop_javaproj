@@ -22,6 +22,8 @@ public class control{
                 case "5":
                 //Modify
                 case "6":
+                    deletedata();
+                    break;
                 //Delete
                 case "7":
                     Add_contact();
@@ -215,7 +217,28 @@ public class control{
         DataArray.additem();
         simpleback();
     }
-    
+    public static void deletedata(){
+        while(true){
+            System.out.println("Input_ID_to_be_deleted:");
+            String id = Main.scn.nextLine();
+            String value="";
+            try {
+                int convert = Integer.parseInt(id);
+                value = Integer.toString(convert);
+            } catch (Exception e) {
+                //System.out.println("Error_no_such_data");
+                
+            }
+            if(DataArray.delete(value)){
+                System.out.println("Delete_data_success");
+                break;
+            }
+            else{
+                System.out.println("Error_no_such_data");
+            }
+        }
+        simpleback();
+    }
     public static void bar(){
         System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n",
         "[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
