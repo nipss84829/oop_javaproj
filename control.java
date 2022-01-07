@@ -59,9 +59,9 @@ public class control{
     public static void doshow_all(){
         System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n","[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
         DataArray.show_all();
+        menu.show_all();
         String select ;
         while(true){
-            menu.show_all();
             select = Main.scn.nextLine();
             switch(select){
                 case "0":

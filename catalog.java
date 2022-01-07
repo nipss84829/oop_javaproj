@@ -24,6 +24,7 @@ public class catalog {
             while(scn.hasNextLine()){
                 cata.add(scn.nextLine());
             }
+            scn.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

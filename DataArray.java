@@ -31,6 +31,7 @@ public class DataArray{
                 d[5] = st.nextToken();
                 databook.add(new Data(id,d[1],d[2],d[3],d[4],d[5]));
             }
+            read.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
