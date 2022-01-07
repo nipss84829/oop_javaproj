@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
 
 public class control{
     public static void domainmenu(){
