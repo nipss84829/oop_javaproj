@@ -1,14 +1,16 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class catalog {
-    private static SortedSet <String> cata = new TreeSet<>();
-
-    //private ArrayList<String> catalog = new ArrayList<>(); 
+    //private static SortedSet <String> cata = new TreeSet<>();
+    private static ArrayList <String> cata = new ArrayList<>();
     public static void load(){
         readfile();
     }
@@ -42,32 +44,30 @@ public class catalog {
         }
     }
     public static void doaddcat(){
-        System.out.println("Please_input_new_catalog:");
-        String newcat = Main.scn.nextLine();
-        if(!(newcat.length()>12)){
-            String fnewcat = newcat.substring(0,1);
-            String rnewcat = newcat.substring(1,newcat.length());
-            newcat = fnewcat+rnewcat;
-    
-            if(addcat(newcat)){
-                System.out.println("Add_catalog_Gamers_success");
-            }
-            else{
+        while(true){
+            System.out.println("Please_input_new_catalog:");
+            String newcat = Main.scn.nextLine();
+            if(newcat.length()>12){
+                System.out.println("Error_catalog_too_long");
+                continue;
+            }else if(!addcat(newcat)){
                 System.out.println("Error_catalog_existed");
+                continue;
+            }
+            else {
+                addcat(newcat);
+                System.out.println("Add_catalog_"+newcat+"_success");
+                break;
             }
         }
-        else{
-            System.out.println("Error_catalog_to_long");
-        }
-        
     }
     private static boolean addcat(String adc){
-        try {
-            cata.add(adc);
-            return true;
-        } catch (Exception e) {
-            return false;
+        for(String check:cata){
+            if(check.equals(adc))return false;
         }
+        cata.add(adc);
+        Collections.sort(cata);
+        return true;
     }
 
     // public String selectcategory(){

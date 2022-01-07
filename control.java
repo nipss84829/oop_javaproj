@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class control{
     public static void domainmenu(){
         String mainselect;
