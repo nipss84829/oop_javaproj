@@ -36,14 +36,14 @@ public class Data{
     }
 
     public boolean setName(String Name){
-        if(Name!=null){
+        if(Name!=null&&Name.length()<=12){
             this.Name = Name;
             //System.out.println("OK");
             return true;
         }
         else {
-            System.out.println("Name cannnot be blank");
-            System.out.println("please retype it!");
+            System.out.println("Error_wrong_data");
+            System.out.println("Please_input_again:");
             return false;
         }
     }
@@ -54,8 +54,8 @@ public class Data{
             return true;
         }
         else {
-            // System.out.println("Birthday cannnot be blank or format error");
-            // System.out.println("please retype it!");
+            System.out.println("Error_wrong_data");
+            System.out.println("Please_input_again:");
             return false;
         }
         
@@ -67,8 +67,8 @@ public class Data{
             return true;
         }
         else {
-            // System.out.println("phoneNumber cannnot be blank or format error");
-            // System.out.println("please retype it!");
+            System.out.println("Error_wrong_data");
+            System.out.println("Please_input_again:");
             return false;
         }
     }
@@ -80,14 +80,14 @@ public class Data{
     }
 
     public boolean setemail(String email){
-        if(email!=null&&checkEmail(email)){
+        if(email!=null&&checkEmail(email)&&email.length()<=24){
             this.email = email;
             //System.out.println("OK");
             return true;
         }
         else {
-            System.out.println("email cannnot be blank or format error");
-            System.out.println("please retype it!");
+            System.out.println("Error_wrong_data");
+            System.out.println("Please_input_again:");
             return false;
         }
     }

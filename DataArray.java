@@ -22,15 +22,23 @@ public class DataArray{
         newdata.setID(id+1);
         config.wID("used_last_id", id+1);
         System.out.println("Name:");
-        newdata.setName(Main.scn.nextLine());
+        while(true){
+            if(newdata.setName(Main.scn.nextLine()))break;
+        }
         System.out.println("Phone_number:");
-        newdata.setphoneNumber(Main.scn.nextLine());
+        while(true){
+            if(newdata.setphoneNumber(Main.scn.nextLine()))break;
+        }
         //catalogs
         newdata.setcategory();
         System.out.println("Email:");
-        newdata.setemail(Main.scn.nextLine());
+        while(true){
+            if(newdata.setemail(Main.scn.nextLine()))break;
+        }
         System.out.println("Birthday:");
-        newdata.setBirthday(Main.scn.nextLine());
+        while(true){
+            if(newdata.setBirthday(Main.scn.nextLine()))break;
+        }
         databook.add(newdata);
         System.out.println("Add_contact_success");
     }
