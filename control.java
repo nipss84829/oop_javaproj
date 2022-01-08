@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class control{
@@ -12,9 +13,13 @@ public class control{
                     break;
                 //Show_all
                 case "2":
+                    showperpage();
+                    break;
                 //Show_per_page
                 case "3":
                 //Show_by_catalog
+                    showbycatalog();
+                    break;
                 case "4":
                     search();
                     break;
@@ -64,6 +69,7 @@ public class control{
         }
     }
     public static void doshow_all(){
+        //1
         System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n","[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
         DataArray.show_all();
         menu.show_all();
@@ -81,7 +87,66 @@ public class control{
             }
         }
     }
+    public static void showperpage(){
+        //2
+    }
+    public static void showbycatalog(){
+        //3
+        ArrayList<Data> searched;
+        ArrayList<String> cata = catalog.getcata();
+        System.out.println("Catalogs:");
+        String index;
+        String selcate="";
+        int i=97;
+        for(String x: cata){
+            System.out.print("["+(char)i+"].");
+            System.out.print(x+" ");
+            i++;
+        }
+        System.out.println();
+        System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+        System.out.println("Input_catalog_to_show:");
+        while(true){
+            try {
+                index = Main.scn.nextLine();
+                //System.out.println("index: "+index);
+                if(index.equals("0")){
+                    domainmenu();
+                    break;
+                }
+                else if(index.equals("99")){
+                    System.exit(0);
+                }
+                else{
+                    byte[] bytes = index.getBytes(StandardCharsets.US_ASCII);
+                    if(bytes[0]<=i&&bytes[0]>=97){
+                        selcate = cata.get(bytes[0]-97);
+                        //System.out.println("selecate2: "+selcate);
+                        break;
+                    }
+                    else {
+                        System.out.println("Error_wrong_data");
+                        System.out.println("Please_input_again:");
+                        //throw new Exception();
+                    }
+                }
+            } catch (Exception e) {
+                //e.printStackTrace();
+                System.out.println("Error_wrong_data");
+                System.out.println("Please_input_again:");
+            }
+        }
+        //System.out.println("selcate:"+selcate);
+        searched = DataArray.searchitem("catalog",selcate);
+        
+        bar();
+        for(Data x:searched){
+            x.getlineData();
+        }
+        simpleback();
+    }
     public static void search(){
+        //4
         ArrayList<Data> x = null;
         menu.search();
         String select;

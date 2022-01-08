@@ -13,6 +13,9 @@ import java.util.TreeSet;
 public class catalog {
     //private static SortedSet <String> cata = new TreeSet<>();
     private static ArrayList <String> cata = new ArrayList<>();
+    public static ArrayList<String> getcata(){
+        return cata;
+    }
     public static void load(){
         readfile();
     }
@@ -71,6 +74,49 @@ public class catalog {
         Collections.sort(cata);
         return true;
     }
+    public void showselectcata(){
+        int i=97;
+        for(String x: cata){
+            System.out.print("["+(char)i+"].");
+            System.out.print(x+" ");
+            i++;
+        }
+        System.out.println();
+    }
+    public String showbycatalog(){
+        System.out.print("Catalogs:");
+        // int index;
+        String index;
+        String selcate="";
+        int i=97;
+        for(String x: cata){
+            System.out.print("["+(char)i+"].");
+            System.out.print(x+" ");
+            i++;
+        }
+        System.out.println();
+        System.out.println("Catalog:");
+        while(true){
+            try {
+                index = Main.scn.nextLine();
+                byte[] bytes = index.getBytes(StandardCharsets.US_ASCII);
+                if(bytes[0]<=i&&bytes[0]>=97){
+                    selcate = cata.get(bytes[0]-97);
+                    break;
+                }
+                else {
+                    System.out.println("Error_wrong_data");
+                    System.out.println("Please_input_again:");
+                    //throw new Exception();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                // System.out.println("Error_wrong_data");
+                // System.out.println("Please_input_again:");
+            }
+        }
+        return selcate;
+    }
     public String selectcatalog(){
         System.out.print("Catalogs:");
         // int index;
@@ -87,9 +133,6 @@ public class catalog {
         while(true){
             try {
                 index = Main.scn.nextLine();
-                if(index.isEmpty()){
-                    break;
-                }
                 byte[] bytes = index.getBytes(StandardCharsets.US_ASCII);
                 if(bytes[0]<=i&&bytes[0]>=97){
                     selcate = cata.get(bytes[0]-97);

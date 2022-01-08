@@ -91,6 +91,12 @@ public class DataArray{
                         searchedData.add(book);
                     }
                 }
+            case "catalog":
+                for(Data book:databook){
+                    if(book.getcategory().equals(value)){
+                        searchedData.add(book);
+                    }
+                }
         }
         return searchedData;
     }
