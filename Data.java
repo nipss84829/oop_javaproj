@@ -24,10 +24,86 @@ public class Data{
         this.category=category;
         this.email=email;
     }
-    public void getlineData(){
-        System.out.printf("%04d %-12s %-11s %-12s %-24s %-4s\n",ID,Name,phoneNumber,category,email,Birthday);
-        //System.out.println(getName()+"\t"+getBirthday()+"\t"+getPhoneNumber()+"\t"+getcategory()+"\t"+getemail());
+    // public void getlineData(){
+    //     System.out.printf("%04d %-12s %-11s %-12s %-24s %-4s\n",ID,Name,phoneNumber,category,email,Birthday);
+    //     //System.out.println(getName()+"\t"+getBirthday()+"\t"+getPhoneNumber()+"\t"+getcategory()+"\t"+getemail());
+    // }
+    public void printtitle(){
+        Config config = new Config();
+        titleformat(config.getbooltoint("show_name"), 
+        config.getbooltoint("show_phone"), 
+        config.getbooltoint("show_catalog"), 
+        config.getbooltoint("show_email"),
+        config.getbooltoint("show_birthday"));
     }
+    public void print(){
+        Config config = new Config();
+        dataformat(config.getbooltoint("show_name"), 
+        config.getbooltoint("show_phone"), 
+        config.getbooltoint("show_catalog"), 
+        config.getbooltoint("show_email"),
+        config.getbooltoint("show_birthday"));
+    }
+    public void titleformat(int n,int p,int c,int e,int b){
+        // "%-4s %-12s %-11s %-12s %-24s %-4s\n","[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]")
+        String format="";
+        format +=String.format("%-4s","[ID]");
+        if(n==1){
+            format+=String.format(" %-12s","[Name]");
+        }
+        if(p==1){
+            format+=String.format(" %-11s","[Phone]");
+        }
+        if(c==1){
+            format+=String.format(" %-12s","[Catalog]");
+        }
+        if(e==1){
+            format+=String.format(" %-24s","[Email]");
+        }
+        if(b==1){
+            format+=String.format(" %-4s","[BD]");
+        }
+        format+="\n";
+        System.out.printf(format);
+    }
+    public void dataformat(int n,int p,int c,int e,int b){
+        String format="";
+        format +=String.format("%04d",this.ID);
+        if(n==1){
+            format+=String.format(" %-12s",this.Name);
+        }
+        if(p==1){
+            format+=String.format(" %-11s",this.phoneNumber);
+        }
+        if(c==1){
+            format+=String.format(" %-12s",this.category);
+        }
+        if(e==1){
+            format+=String.format(" %-24s",this.email);
+        }
+        if(b==1){
+            format+=String.format(" %-4s",this.Birthday);
+        }
+        format+="\n";
+        System.out.printf(format);
+    }    
+    public String showformate(String datatype){
+        String name="%-12s",phonenumber="%-11s",category="%-12s",email="%-24s",birthday="%-4s";
+        switch(datatype){
+            case "name":
+                return name;
+            case "phonenumber":
+                return phonenumber;
+            case "category":
+                return category;
+            case "email":
+                return email;
+            case "birthday":
+                return birthday;  
+            default: return "";
+        }
+    }
+    
     public String getallData(){
         return(getName()+"\t"+getBirthday()+"\t"+getPhoneNumber()+"\t"+getcategory()+"\t"+getemail()+"\n");
     } 

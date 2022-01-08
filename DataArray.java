@@ -12,8 +12,17 @@ public class DataArray{
 
     public static void show_all(){
         for(Data x:databook){
-            x.getlineData();
+            x.print();
         }
+    }
+    public static void testshow(){
+        Config config = new Config();
+        config.getvalue("show_name");
+        config.getvalue("show_phone");
+        config.getvalue("show_catalog");
+        config.getvalue("show_email");
+        config.getvalue("show_birthday");
+
     }
     public static void additem(){
         Data newdata = new Data();

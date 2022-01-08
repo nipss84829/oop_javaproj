@@ -47,6 +47,8 @@ public class control{
                     break;
                 //show_all_catalog
                 case "10":
+                    setdisplay();
+                    break;
                 //Set_display_field
                 case "11":
                 //Set_show_perpage
@@ -70,7 +72,8 @@ public class control{
     }
     public static void doshow_all(){
         //1
-        System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n","[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
+        // System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n","[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
+        bar();
         DataArray.show_all();
         menu.show_all();
         String select ;
@@ -138,10 +141,9 @@ public class control{
         }
         //System.out.println("selcate:"+selcate);
         searched = DataArray.searchitem("catalog",selcate);
-        
         bar();
         for(Data x:searched){
-            x.getlineData();
+            x.print();
         }
         simpleback();
     }
@@ -172,9 +174,8 @@ public class control{
                                 System.out.println("Search_result:");
                                 bar();
                                 for(Data outbook:x){
-                                    outbook.getlineData();
+                                    outbook.print();
                                 }break;
-
                             }
                         }
                         else{
@@ -209,7 +210,7 @@ public class control{
                                 System.out.println("Search_result:");
                                 bar();
                                 for(Data outbook:x){
-                                    outbook.getlineData();
+                                    outbook.print();
                                 }
                                 break;
                             }
@@ -246,7 +247,7 @@ public class control{
                                 System.out.println("Search_result:");
                                 bar();
                                 for(Data outbook:x){
-                                    outbook.getlineData();
+                                    outbook.print();
                                 }
                                 break;
                             }
@@ -317,7 +318,7 @@ public class control{
             data = sdata.get(0);
             System.out.println("Search_result:");
             bar();
-            data.getlineData();
+            data.print();
             System.out.println("New_name:");
             String name = Main.scn.nextLine();
             if(!name.isEmpty()){
@@ -344,9 +345,88 @@ public class control{
         }   
         simpleback();
     }
+    public static void setdisplay(){
+        Config config = new Config();
+        int valuearr[] = new int[5];
+        String input;
+        valuearr[0] = config.getbooltoint("show_name");
+        valuearr[1] = config.getbooltoint("show_phone");
+        valuearr[2] = config.getbooltoint("show_catalog");
+        valuearr[3] = config.getbooltoint("show_email");
+        valuearr[4] = config.getbooltoint("show_birthday");
+        System.out.println("[1].Show_name:"+valuearr[0]
+                        +" [2].Show_phone:"+valuearr[1]
+                        +" [3].Show_cat:"+valuearr[2]
+                        +" [4].Show_email:"+valuearr[3]
+                        +" [5].Show_bd:"+valuearr[4]+"\n");
+
+        System.out.println("New_show_name(0/1):");
+        input = Main.scn.nextLine();
+        config.intwtoString("show_name", Integer.parseInt(input));
+        // if(!input.trim().equals("1")||!input.trim().equals("0")){
+        //     System.out.println("Input_error_plaese_input_0_or_1:");
+        // }
+        // else{
+        //     config.setvalue("show_name", input);
+        // }
+
+        System.out.println("New_show_phone(0/1):");
+        input = Main.scn.nextLine();
+        config.intwtoString("show_phone", Integer.parseInt(input));
+        // if(!input.trim().equals("1")||!input.trim().equals("0")){
+        //     System.out.println("Input_error_plaese_input_0_or_1:");
+        // }
+        // else{
+        //     config.setvalue("show_phone", input);
+        // }
+        
+        System.out.println("New_show_cat(0/1):");
+        input = Main.scn.nextLine();
+        config.intwtoString("show_catalog", Integer.parseInt(input));
+        // if(!input.trim().equals("1")||!input.trim().equals("0")){
+        //     System.out.println("Input_error_plaese_input_0_or_1:");
+        // }
+        // else{
+        //     config.setvalue("show_catalog", input);
+        // }
+
+        System.out.println("New_show_email(0/1):");
+        input = Main.scn.nextLine();
+        config.intwtoString("show_email", Integer.parseInt(input));
+        // if(!input.trim().equals("1")||!input.trim().equals("0")){
+        //     System.out.println("Input_error_plaese_input_0_or_1:");
+        // }
+        // else{
+        //     config.setvalue("show_email", input);
+        // }
+
+        System.out.println("New_show_bd(0/1):");
+        input = Main.scn.nextLine();
+        config.intwtoString("show_birthday", Integer.parseInt(input));
+        // if(!input.trim().equals("1")||!input.trim().equals("0")){
+        //     System.out.println("Input_error_plaese_input_0_or_1:");
+        // }
+        // else{
+        //     config.setvalue("show_birthday", input);
+        // }
+        System.out.println();
+
+        valuearr[0] = config.getbooltoint("show_name");
+        valuearr[1] = config.getbooltoint("show_phone");
+        valuearr[2] = config.getbooltoint("show_catalog");
+        valuearr[3] = config.getbooltoint("show_email");
+        valuearr[4] = config.getbooltoint("show_birthday");
+
+        System.out.println("[1].Show_name:"+valuearr[0]
+                        +" [2].Show_phone:"+valuearr[1]
+                        +" [3].Show_cat:"+valuearr[2]
+                        +" [4].Show_email:"+valuearr[3]
+                        +" [5].Show_bd:"+valuearr[4]);
+        simpleback();
+    }
     public static void bar(){
-        System.out.printf("%-4s %-12s %-11s %-12s %-24s %-4s\n",
-        "[ID]","[Name]","[Phone]","[Catalog]","[Email]","[BD]");
+        Data data = new Data();
+        data.printtitle();
     }
     public static void simpleback(){
         String select;
