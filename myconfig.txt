@@ -1,6 +1,6 @@
 used_last_id:0010
-show_sort_field:id
-show_sort_order:des
+show_sort_field:phone
+show_sort_order:asc
 show_phone:true
 show_name:true
 show_birthday:true

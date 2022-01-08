@@ -1,5 +1,4 @@
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -131,7 +130,43 @@ public class DataArray{
             e.printStackTrace();
         }
     }
-    private static void ranking(String datatype,ArrayList <Data> rankinglist){
+    public static void ranking(String datatype,ArrayList <Data> rankinglist){
+        Comparator<Data> id = new Comparator<Data>() {
+                @Override
+                public int compare(Data e1,Data e2){
+                    return e1.getID().compareTo(e2.getID());
+                }
+            };
+        Comparator<Data> name = new Comparator<Data>() {
+            @Override
+            public int compare(Data e1,Data e2){
+                return e1.getName().compareTo(e2.getName());
+            }
+        };
+        Comparator<Data> phone = new Comparator<Data>() {
+            @Override
+            public int compare(Data e1,Data e2){
+                return e1.getPhoneNumber().compareTo(e2.getPhoneNumber());
+            }
+        };
+        Comparator<Data> email = new Comparator<Data>() {
+            @Override
+            public int compare(Data e1,Data e2){
+                return e1.getemail().compareTo(e2.getemail());
+            }
+        };
+        Comparator<Data> catalog = new Comparator<Data>() {
+            @Override
+            public int compare(Data e1,Data e2){
+                return e1.getcategory().compareTo(e2.getcategory());
+            }
+        };
+        Comparator<Data> birthday = new Comparator<Data>() {
+            @Override
+            public int compare(Data e1,Data e2){
+                return e1.getBirthday().compareTo(e2.getBirthday());
+            }
+        };
         switch(datatype){
             case "idasc":
                 Collections.sort(rankinglist,id);
@@ -154,50 +189,64 @@ public class DataArray{
                 Collections.sort(rankinglist,phone);
                 Collections.reverse(rankinglist);
                 break;
-            case "catalogasc":
+            case "catasc":
                 Collections.sort(rankinglist,catalog);
                 break;
-            case "catalogdes":
+            case "catdes":
                 Collections.sort(rankinglist,catalog);
                 Collections.reverse(rankinglist);
                 break;
-            case "birthdayasc":
+            case "emailasc":
+                Collections.sort(rankinglist,email);
+                break;
+            case "emaildes":
+                Collections.sort(rankinglist,email);
+                Collections.reverse(rankinglist);
+                break;
+            case "bdasc":
                 Collections.sort(rankinglist,birthday);
                 break;
-            case "birthdaydes":
+            case "bddes":
                 Collections.sort(rankinglist,birthday);
                 Collections.reverse(rankinglist);
                 break;
         }
+
     }
-    static Comparator<Data> id = new Comparator<Data>() {
-        @Override
-        public int compare(Data e1,Data e2){
-            return e1.getID().compareTo(e2.getID());
-        }
-    };
-    static Comparator<Data> name = new Comparator<Data>() {
-        @Override
-        public int compare(Data e1,Data e2){
-            return e1.getName().compareTo(e2.getName());
-        }
-    };
-    static Comparator<Data> phone = new Comparator<Data>() {
-        @Override
-        public int compare(Data e1,Data e2){
-            return e1.getPhoneNumber().compareTo(e2.getPhoneNumber());
-        }
-    };
-    static Comparator<Data> catalog = new Comparator<Data>() {
-        @Override
-        public int compare(Data e1,Data e2){
-            return e1.getcategory().compareTo(e2.getcategory());
-        }
-    };
-    static Comparator<Data> birthday = new Comparator<Data>() {
-        @Override
-        public int compare(Data e1,Data e2){
-            return e1.getBirthday().compareTo(e2.getBirthday());
-        }
-    };
+    // static Comparator<Data> id = new Comparator<Data>() {
+    //     @Override
+    //     public int compare(Data e1,Data e2){
+    //         return e1.getID().compareTo(e2.getID());
+    //     }
+    // };
+    // static Comparator<Data> name = new Comparator<Data>() {
+    //     @Override
+    //     public int compare(Data e1,Data e2){
+    //         return e1.getName().compareTo(e2.getName());
+    //     }
+    // };
+    // static Comparator<Data> phone = new Comparator<Data>() {
+    //     @Override
+    //     public int compare(Data e1,Data e2){
+    //         return e1.getPhoneNumber().compareTo(e2.getPhoneNumber());
+    //     }
+    // };
+    // static Comparator<Data> email = new Comparator<Data>() {
+    //     @Override
+    //     public int compare(Data e1,Data e2){
+    //         return e1.getemail().compareTo(e2.getemail());
+    //     }
+    // };
+    // static Comparator<Data> catalog = new Comparator<Data>() {
+    //     @Override
+    //     public int compare(Data e1,Data e2){
+    //         return e1.getcategory().compareTo(e2.getcategory());
+    //     }
+    // };
+    // static Comparator<Data> birthday = new Comparator<Data>() {
+    //     @Override
+    //     public int compare(Data e1,Data e2){
+    //         return e1.getBirthday().compareTo(e2.getBirthday());
+    //     }
+    // };
 }

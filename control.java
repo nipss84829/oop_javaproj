@@ -57,6 +57,8 @@ public class control{
                     break;
                 // Set_order
                 case "13":
+                    sortbyfield();
+                    break;
                 // Set_sort_by_field
                 case "14":
                 //showRawDATA
@@ -445,6 +447,56 @@ public class control{
     public static void bar(){
         Data data = new Data();
         data.printtitle();
+    }
+    public static void sortbyfield(){
+        Config config = new Config();
+
+        System.out.println("[1].ID [2].Name [3].Phone [4].Cat [5].Email [6].Bd");
+        System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+        String select;
+        while(true){
+            select = Main.scn.nextLine();
+            switch(select){
+                case "1":
+                    config.setvalue("show_sort_field","id");
+                    System.out.println("Sorted_by:ID");
+                    System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+                    break;
+                case "2":
+                    config.setvalue("show_sort_field","name");
+                    System.out.println("Sorted_by:Name");
+                    System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+                    break;
+                case "3":
+                    config.setvalue("show_sort_field","phone");
+                    System.out.println("Sorted_by:Phone");
+                    System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+                    break;
+                case "4":
+                    config.setvalue("show_sort_field","cat");
+                    System.out.println("Sorted_by:Cat");
+                    System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+                    break;
+                case "5":
+                    config.setvalue("show_sort_field","email");
+                    System.out.println("Sorted_by:Email");
+                    System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+                    break;
+                case "6":
+                    config.setvalue("show_sort_field","bd");
+                    System.out.println("Sorted_by:Bd");
+                    System.out.println("[0].Go_back_to_main_menu [99].Exit_system");
+                    break;
+                case "0":
+                    return;
+                case "99":
+                    System.exit(0);
+                default:
+                    menu.wrong();
+                    break;
+            }
+            
+        }
     }
     public static void simpleback(){
         String select;
