@@ -78,7 +78,12 @@ public class Data{
             category = Cate.selectcatalog();
         //}
     }
+    public void modselectcatalog(){
+        if(!Cate.modselectcatalog().isEmpty()){
+            category = Cate.modselectcatalog();
+        }
 
+    }
     public boolean setemail(String email){
         if(email!=null&&checkEmail(email)&&email.length()<=24){
             this.email = email;

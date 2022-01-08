@@ -20,6 +20,8 @@ public class control{
                     break;
                     //Search
                 case "5":
+                    modify();
+                    break;
                 //Modify
                 case "6":
                     deletedata();
@@ -237,6 +239,44 @@ public class control{
                 System.out.println("Error_no_such_data");
             }
         }
+        simpleback();
+    }
+    public static void modify(){
+        System.out.println("Input_ID_to_be_modified:");
+        String id = Main.scn.nextLine();
+        int s_id = Integer.valueOf(id);
+        id = String.valueOf(s_id);
+        ArrayList<Data> sdata = DataArray.searchitem("ID",id);
+        Data data ;
+        if(!sdata.isEmpty()){
+            data = sdata.get(0);
+            System.out.println("Search_result:");
+            bar();
+            data.getlineData();
+            System.out.println("New_name:");
+            String name = Main.scn.nextLine();
+            if(!name.isEmpty()){
+                data.setName(name);
+            }
+            System.out.println("New_phone:");
+            String phone = Main.scn.nextLine();
+            if(!phone.isEmpty()){
+                data.setphoneNumber(phone);
+            }
+            data.modselectcatalog();
+            System.out.println("New_email:");
+            String mail = Main.scn.nextLine();
+            if(!phone.isEmpty()){
+                data.setemail(mail);
+            }
+            System.out.println("New_birthday:");
+            String birthday = Main.scn.nextLine();
+            if(!birthday.isEmpty()){
+                data.setBirthday(birthday);
+            }
+            DataArray.modify(data);
+            System.out.println("Modify_data_success");
+        }   
         simpleback();
     }
     public static void bar(){

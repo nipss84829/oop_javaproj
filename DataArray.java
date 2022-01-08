@@ -42,11 +42,11 @@ public class DataArray{
         databook.add(newdata);
         System.out.println("Add_contact_success");
     }
-    public static boolean delete(String value){
+    public static boolean delete(String id){
         int flag=0;
         Data deleteitem = new Data();
         for(Data book:databook){
-            if(book.getID().equals(value)){
+            if(book.getID().equals(id)){
                 flag = 1;
                 deleteitem = book;
             }
@@ -61,6 +61,11 @@ public class DataArray{
             return true;
         }
         
+    }
+    public static void modify(Data newData){
+        int index = Integer.parseInt(newData.getID());
+        index -=1;
+        databook.set(index,newData);
     }
 
     public static ArrayList<Data> searchitem(String datatype,String value){
