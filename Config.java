@@ -44,6 +44,7 @@ public class Config {
     //     System.out.println(myconfig.get("verify_string"));
     // }
     public int getbooltoint(String value){
+        read();
         boolean x = Boolean.parseBoolean(myconfig.get(value));
         return x?1:0;
     }
@@ -55,9 +56,11 @@ public class Config {
         read();
     }
     public String getvalue(String value){
+        read();
         return myconfig.get(value);
     }
     public int getInt(String value){
+        read();
         return Integer.valueOf(myconfig.get(value));
     }
     public void setInt(String key,int value){

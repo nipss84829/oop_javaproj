@@ -1,5 +1,8 @@
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -11,19 +14,18 @@ public class DataArray{
     private static ArrayList<Data> databook = new ArrayList<>();
 
     public static void show_all(){
-        for(Data x:databook){
+        Config config = new Config();
+        String show_sort_field = config.getvalue("show_sort_field");
+        String show_sort_order = config.getvalue("show_sort_order");
+        String s = show_sort_field+show_sort_order;
+        //System.out.println(s);
+        ArrayList<Data> sort = new ArrayList<>(databook);
+        ranking(s,sort);
+        for(Data x:sort){
             x.print();
         }
     }
-    public static void testshow(){
-        Config config = new Config();
-        config.getvalue("show_name");
-        config.getvalue("show_phone");
-        config.getvalue("show_catalog");
-        config.getvalue("show_email");
-        config.getvalue("show_birthday");
 
-    }
     public static void additem(){
         Data newdata = new Data();
         Config config = new Config();
@@ -129,4 +131,73 @@ public class DataArray{
             e.printStackTrace();
         }
     }
+    private static void ranking(String datatype,ArrayList <Data> rankinglist){
+        switch(datatype){
+            case "idasc":
+                Collections.sort(rankinglist,id);
+                break;
+            case "iddes":
+                Collections.sort(rankinglist,id);
+                Collections.reverse(rankinglist);
+                break;
+            case "nameasc":
+                Collections.sort(rankinglist,name);
+                break;
+            case "namedes":
+                Collections.sort(rankinglist,name);
+                Collections.reverse(rankinglist);
+                break;
+            case "phoneasc":
+                Collections.sort(rankinglist,phone);
+                break;            
+            case "phonedes":
+                Collections.sort(rankinglist,phone);
+                Collections.reverse(rankinglist);
+                break;
+            case "catalogasc":
+                Collections.sort(rankinglist,catalog);
+                break;
+            case "catalogdes":
+                Collections.sort(rankinglist,catalog);
+                Collections.reverse(rankinglist);
+                break;
+            case "birthdayasc":
+                Collections.sort(rankinglist,birthday);
+                break;
+            case "birthdaydes":
+                Collections.sort(rankinglist,birthday);
+                Collections.reverse(rankinglist);
+                break;
+        }
+    }
+    static Comparator<Data> id = new Comparator<Data>() {
+        @Override
+        public int compare(Data e1,Data e2){
+            return e1.getID().compareTo(e2.getID());
+        }
+    };
+    static Comparator<Data> name = new Comparator<Data>() {
+        @Override
+        public int compare(Data e1,Data e2){
+            return e1.getName().compareTo(e2.getName());
+        }
+    };
+    static Comparator<Data> phone = new Comparator<Data>() {
+        @Override
+        public int compare(Data e1,Data e2){
+            return e1.getPhoneNumber().compareTo(e2.getPhoneNumber());
+        }
+    };
+    static Comparator<Data> catalog = new Comparator<Data>() {
+        @Override
+        public int compare(Data e1,Data e2){
+            return e1.getcategory().compareTo(e2.getcategory());
+        }
+    };
+    static Comparator<Data> birthday = new Comparator<Data>() {
+        @Override
+        public int compare(Data e1,Data e2){
+            return e1.getBirthday().compareTo(e2.getBirthday());
+        }
+    };
 }

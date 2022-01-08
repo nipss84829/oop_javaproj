@@ -173,7 +173,9 @@ public class Data{
         }
     }
     public String getID(){
-        return Integer.toString(this.ID);
+        //String Stringid = String.format("%04d",id);
+        return String.format("%04d",this.ID);
+        //Integer.toString(this.ID);
     }
     public String getName(){
         return this.Name;

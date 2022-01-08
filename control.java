@@ -53,6 +53,8 @@ public class control{
                 case "11":
                 //Set_show_perpage
                 case "12":
+                    setorder();
+                    break;
                 // Set_order
                 case "13":
                 // Set_sort_by_field
@@ -422,6 +424,22 @@ public class control{
                         +" [3].Show_cat:"+valuearr[2]
                         +" [4].Show_email:"+valuearr[3]
                         +" [5].Show_bd:"+valuearr[4]);
+        simpleback();
+    }
+    public static void setorder(){
+        //12
+        Config config = new Config();
+        
+        System.out.println("show_sort_order:"+config.getvalue("show_sort_order"));
+        System.out.println("Please_input_new_sort_order:");
+        String input = Main.scn.nextLine();
+        if(input.equals("asc")||input.equals("des")){
+            config.setvalue("show_sort_order", input);
+        }
+        else{
+            System.out.println("Input_error_plaese_input_asc_or_des:");
+        }
+        System.out.println("show_sort_order:"+config.getvalue("show_sort_order"));
         simpleback();
     }
     public static void bar(){
