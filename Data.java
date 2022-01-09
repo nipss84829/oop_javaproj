@@ -247,16 +247,10 @@ public class Data{
         }
     }
     public boolean checkPhone(String phoneNumber){
-        if(phoneNumber.matches("[0-9]{4}-[0-9]{6}")){
-            return true;
-        }
-        return false;
+        return phoneNumber.matches("[0-9]{4}-[0-9]{6}");
     }
     public boolean checkEmail(String email){
         // if(email.matches("^[_a-z0-9-]+([.][_a-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$")){
-        if(email.matches(".+@.+\\..+")){
-            return true;
-        }
-        return false;
+        return email.matches(".+@.+\\..+");
     }
 }
