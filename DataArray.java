@@ -213,40 +213,4 @@ public class DataArray{
         }
 
     }
-    // static Comparator<Data> id = new Comparator<Data>() {
-    //     @Override
-    //     public int compare(Data e1,Data e2){
-    //         return e1.getID().compareTo(e2.getID());
-    //     }
-    // };
-    // static Comparator<Data> name = new Comparator<Data>() {
-    //     @Override
-    //     public int compare(Data e1,Data e2){
-    //         return e1.getName().compareTo(e2.getName());
-    //     }
-    // };
-    // static Comparator<Data> phone = new Comparator<Data>() {
-    //     @Override
-    //     public int compare(Data e1,Data e2){
-    //         return e1.getPhoneNumber().compareTo(e2.getPhoneNumber());
-    //     }
-    // };
-    // static Comparator<Data> email = new Comparator<Data>() {
-    //     @Override
-    //     public int compare(Data e1,Data e2){
-    //         return e1.getemail().compareTo(e2.getemail());
-    //     }
-    // };
-    // static Comparator<Data> catalog = new Comparator<Data>() {
-    //     @Override
-    //     public int compare(Data e1,Data e2){
-    //         return e1.getcategory().compareTo(e2.getcategory());
-    //     }
-    // };
-    // static Comparator<Data> birthday = new Comparator<Data>() {
-    //     @Override
-    //     public int compare(Data e1,Data e2){
-    //         return e1.getBirthday().compareTo(e2.getBirthday());
-    //     }
-    // };
 }
